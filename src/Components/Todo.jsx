@@ -9,15 +9,14 @@ export function Todo() {
     const [ addTask, toggleAddTask ] = useState(false);
 
     const [todo, setTodo] = useState([
-        { id: 1, name: "Hello", checked: false, urg: "low" },
-        { id: 2, name: "Hello", checked: false, urg: "low" },
+        { id: 1, body: "Hello", checked: true, },
+        { id: 2, body: "Test", checked: false, },
     ]);
     const [ todoClone, setTodoClone ] = useState(todo);
 
     useEffect(() => {
         setTodoClone([...todo]);
     }, [todo]);
-
 
     function add(event) {
         let task_body = event.target[0].value;
@@ -27,7 +26,7 @@ export function Todo() {
 
         const new_todo = [
             ...todo,
-            {id: last_id + 1, name: task_body, checked: false, urg: "low" },
+            { id: last_id + 1, body: task_body, checked: false },
         ]
 
         setTodo(new_todo);
@@ -52,7 +51,7 @@ export function Todo() {
     return (
         <section className="container my-4 fs-3">
             
-            { todoClone && <Search todo={todoClone} setTodos={setTodoClone} />}
+            { searchBar && <Search todos={todo} setTodoClone={setTodoClone} />}
             { addTask && <AddTask add={add} /> }
 
             {todoClone.map((task) => { return (
