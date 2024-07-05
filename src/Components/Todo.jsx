@@ -1,25 +1,63 @@
-import { Fragment, useState } from "react";
 import { Task } from "./Task.jsx";
+import { AddTask } from "./AddTask.jsx"
+import { Search } from "./Search.jsx";
+import { useEffect, useState } from "react";
 
 export function Todo() {
     
-    const [todos, setTodos] = useState([
+    const [ searchBar, toggleSearchBar ] = useState(true);
+    const [ addTask, toggleAddTask ] = useState(false);
+
+    const [todo, setTodo] = useState([
         { id: 1, name: "Hello", checked: false, urg: "low" },
         { id: 2, name: "Hello", checked: false, urg: "low" },
-        { id: 3, name: "Hello", checked: false, urg: "low" },
-        { id: 4, name: "Hello", checked: false, urg: "low" },
-        { id: 5, name: "Hello", checked: false, urg: "low" }
     ]);
-    
-    
-    let showTasks = [];
-    todos.forEach((task) => {
-        showTasks.push(<Task task={task} todos={todos} setTodo={setTodos} key={task.name} />)
-    });
+    const [ todoClone, setTodoClone ] = useState(todo);
 
+    useEffect(() => {
+        setTodoClone([...todo]);
+    }, [todo]);
+
+
+    function add(event) {
+        let task_body = event.target[0].value;
+        if(task_body.trim() === "") return;
+        
+        const last_id = todo.length === 0 ? 0 : todo[todo.length-1].id;
+
+        const new_todo = [
+            ...todo,
+            {id: last_id + 1, name: task_body, checked: false, urg: "low" },
+        ]
+
+        setTodo(new_todo);
+        event.preventDefault();
+    }
+    
+    function check(id) {
+        const new_todo = todo.map((todo) => {
+            if(todo.id !== id) {
+                return todo;
+            }
+            return { ...todo, checked: !todo.checked }
+        });
+        setTodo(new_todo);
+    }
+    
+    function remove(id) {
+        const new_todo = todo.filter(task => task.id !== id);
+        setTodo(new_todo);
+    }
+    
     return (
-        <Fragment>
-            {showTasks} 
-        </Fragment>
+        <section className="container my-4 fs-3">
+            
+            { todoClone && <Search todo={todoClone} setTodos={setTodoClone} />}
+            { addTask && <AddTask add={add} /> }
+
+            {todoClone.map((task) => { return (
+               <Task task={task} check={check} remove={remove} key={task.id}/>
+            ) }) } 
+        </section>
     )
 }
