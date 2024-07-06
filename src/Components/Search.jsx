@@ -24,7 +24,7 @@ export function Search({todos, setTodoClone}) {
             </div>
 
             <div className="flex h-6 mt-2  items-center">
-                <input onChange={(e) => toggle_marked(e.target.checked)} id="comments" name="comments" type="checkbox" className="checkbox" />
+                <input onChange={(e) => toggle_marked(e.target.checked)} type="checkbox" className="checkbox border-black" />
                 <label htmlFor="comments" className="font-medium text-gray-900 ml-3">Hide marked</label>
             </div>
         </form>
