@@ -49,7 +49,7 @@ export function Todo() {
     
     return (
         <Fragment>
-            <section className="container my-4 fs-3">
+            <section className="w-4/5" style={{"marginLeft": "10%"}}>
                 { searchBar && <Search todos={todo} setTodoClone={setTodoClone} />}
                 {todoClone.map((task) => { return (
                 <Task task={task} check={check} remove={remove} key={task.id}/>
