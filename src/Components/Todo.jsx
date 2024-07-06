@@ -58,9 +58,9 @@ export function Todo() {
                             <div className="shadow-sm overflow-hidden my-8">
                                 <main className="border-collapse table-auto w-full text-sm">
                                     <div className="flex">
-                                        <div className="w-1/6 border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Mark</div>
-                                        <div className="w-5/6 border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Body</div>
-                                        <div className="w-1/6 border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Delete</div>
+                                        <div className="todo-header w-1/12">Mark</div>
+                                        <div className="todo-header w-10/12 text-left-important">Body</div>
+                                        <div className="todo-header w-1/12">Delete</div>
                                     </div>
                                     <div className="bg-white dark:bg-slate-800">
                                         {todoClone.map((task) => { return (

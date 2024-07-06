@@ -18,9 +18,9 @@ export function Search({todos, setTodoClone}) {
 
     return (
     <form onSubmit={(e) => add(e)} className="flex flex-col mt-6 mb-6">
-            <div className="w-full flex m-auto rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-0 focus:outline-none text-lg">
-                <span className="flex select-none items-center pl-3 text-gray-500 mr-2"><i className="bi bi-search m-auto"></i></span>
-                <input onChange={(e) => search_tasks(e.target.value)} type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:outline-none" placeholder="Search for a task" />
+            <div className="w-full flex m-auto rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-0 focus:outline-none text-xl">
+                <span className="flex select-none items-center pl-4 text-gray-500 mr-4"><i className="bi bi-search m-auto"></i></span>
+                <input onChange={(e) => search_tasks(e.target.value)} type="text" name="username" id="username" className="block flex-1 border-0 bg-transparent py-3 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:outline-none" placeholder="Search for a task" />
             </div>
 
             <div className="flex h-6 mt-2  items-center">

@@ -29,6 +29,19 @@
     border: 1px solid rgba(0, 0, 0,.25);
 }
 
+.text-left-important {
+    text-align: left !important;
+}
+
+
+.todo-header {
+    @apply border-b border-slate-600 text-slate-400 dark:text-slate-200 p-4 pt-0 text-center font-bold text-xl
+}
+
 .todo-card {
-    @apply flex border-b border-slate-700 text-white p-4 
+    @apply flex border-b border-slate-700 text-white p-4 text-xl
+}
+
+.navbar-links-lg {
+    @apply text-xl rounded-md px-3 py-2 text-sm font-medium text-lg
 }

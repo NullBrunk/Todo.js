@@ -6,7 +6,7 @@ import { Todo } from './Components/Todo.jsx'
 function App() {
 
     return (
-        <div className="bg-gray-100 h-screen">
+        <div className="bg-gray-100 h-screen text-xl">
             <Header />    
             <Todo />
         </div>
