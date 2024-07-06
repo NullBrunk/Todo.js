@@ -1,16 +1,20 @@
 export function Task({task, check, remove}) {
-    return (
-    <form key={task.id} className="card flex flex-row w-3/5 m-auto mt-2 justify-center">
-        <input type="checkbox" className="form-check-input" checked={task.checked} onChange={() => check(task.id)} />
-            
-        <div className="ms-4 user-select-none">
-            {task.body}
+    return ( <div className="flex bg-gray-800">
+        <div className="todo-card justify-center w-1/6">
+            <input type="checkbox" className="checkbox" checked={task.checked} onChange={() => check(task.id)} />
         </div>
-
-        <button type="submit" className="btn btn-danger ms-auto" onClick={(e) => { 
-            e.preventDefault(); 
-            remove(task.id)}
-        }><i className="bi bi-trash2-fill"></i></button>
-    </form>
+        
+        <div className="todo-card w-5/6"> 
+                {task.body}
+        </div>
+        
+        <div className="todo-card w-1/6"> 
+            <button type="submit" className="bg-rose-500 hover:bg-rose-300 duration-500 ease-linear transition text-white font-bold py-1 px-2 rounded-md" onClick={(e) => { 
+                e.preventDefault(); 
+                remove(task.id)}
+            }><i className="bi bi-trash2-fill"></i></button>
+        </div>
+      
+    </div>
     );
 }
