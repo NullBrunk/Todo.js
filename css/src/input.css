@@ -2,38 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Utility classes */
+.text-left-important {
+    text-align: left !important;
+}
+
+.border-black {
+    border: 1px solid rgba(0, 0, 0,.25) !important;
+}
+
+.bottom-right {
+    display: flex;
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.wh-48 {
+    height: 48px !important;
+    width: 48px !important;
+}
+
+/* Checkbox custom style */
 .checkbox {
+    border: 1px solid rgba(255,255,255,.25);
     border-radius: .25em;
-    float: left;
     width: 1em;
     height: 1em;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 1px solid rgba(255,255,255,.25);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 0;
 }
-
 .checkbox:checked {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-}
-.checkbox:checked {
     background-color: #4f46e5;
     border-color: #4f46e5;
 }
 
-.border-black {
-    border: 1px solid rgba(0, 0, 0,.25);
+/* Reusable components */
+
+/* ## Navbar ## */
+.navbar-links {
+    @apply text-xl rounded-md px-3 py-2 text-sm font-medium text-lg
 }
 
-.text-left-important {
-    text-align: left !important;
+.navbar-links-mobile {
+    @apply block rounded-md px-3 py-2 text-base font-medium
 }
 
+.navbar-links-hover {
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white
+}
 
+/* ## Todo table ## */
 .todo-header {
     @apply border-b border-slate-600 text-slate-400 dark:text-slate-200 p-4 pt-0 text-center font-bold text-xl
 }
@@ -42,6 +65,3 @@
     @apply flex border-b border-slate-700 text-white p-4 text-xl
 }
 
-.navbar-links-lg {
-    @apply text-xl rounded-md px-3 py-2 text-sm font-medium text-lg
-}
