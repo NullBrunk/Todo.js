@@ -1,8 +1,25 @@
-# React + Vite
+<div align="center">
+   
+# Todo.js  
+  
+<br/> 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/Todo.js?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/Todo.js?style=for-the-badge)
+![repo size](https://img.shields.io/github/repo-size/NullBrunk/Todo.js?style=for-the-badge)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![phpchat](https://github.com/NullBrunk/Todo.js/assets/125673909/eabe391b-88f3-4b9c-9545-975cdaee98d1)
+
+</div>
+
+
+# ⚒️ Installation
+
+> [!TIP]
+> **You'll need to install npm first.**
+
+```bash
+git clone https://github.com/NullBrunk/Todo.js && cd Todo.js
+npm i && npm run dev
+```
