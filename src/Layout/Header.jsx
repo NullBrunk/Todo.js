@@ -11,9 +11,7 @@ export function Header() {
                 </div>
             </div>
 
-            <div className="w-25 d-flex justify-content-end">
-                
-            </div>
+            <div id="add-task" className="w-25 d-flex justify-content-end"></div>
         </nav>
     );
 }

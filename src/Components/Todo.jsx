@@ -1,12 +1,11 @@
 import { Task } from "./Task.jsx";
 import { AddTask } from "./AddTask.jsx"
 import { Search } from "./Search.jsx";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export function Todo() {
     
     const [ searchBar, toggleSearchBar ] = useState(true);
-    const [ addTask, toggleAddTask ] = useState(false);
 
     const [todo, setTodo] = useState([
         { id: 1, body: "Hello", checked: true, },
@@ -49,14 +48,15 @@ export function Todo() {
     }
     
     return (
-        <section className="container my-4 fs-3">
-            
-            { searchBar && <Search todos={todo} setTodoClone={setTodoClone} />}
-            { addTask && <AddTask add={add} /> }
+        <Fragment>
+            <section className="container my-4 fs-3">
+                { searchBar && <Search todos={todo} setTodoClone={setTodoClone} />}
+                {todoClone.map((task) => { return (
+                <Task task={task} check={check} remove={remove} key={task.id}/>
+                ) }) } 
+            </section>
 
-            {todoClone.map((task) => { return (
-               <Task task={task} check={check} remove={remove} key={task.id}/>
-            ) }) } 
-        </section>
+            <AddTask add={add} />
+        </Fragment>
     )
 }

@@ -19,7 +19,7 @@ export function Search({todos, setTodoClone}) {
     return (
         <form className="fs-6 rounded mb-4" onSubmit={(e) => add(e)}>
             <div className="d-flex">
-                <div className="border-primary rounded border bg-primary text-white fs-4 px-4 d-flex"><i className="bi bi-search m-auto"></i></div>
+                <div className="border-primary rounded border bg-primary text-white fs-4 px-3 d-flex"><i className="bi bi-search m-auto"></i></div>
                 <input type="text" className="border-primary form-control ms-2 p-2 fs-4" placeholder="Search for a task ..." onChange={(e) => search_tasks(e.target.value)}/>
             </div>
 
