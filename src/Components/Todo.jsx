@@ -53,8 +53,8 @@ export function Todo() {
             return { ...todo, checked: !todo.checked }
         });
 
-        // Mark the task in the localstorage
-        storage.setMarked(id);
+        // Toggle Mark attribute in the localstorage
+        storage.toggleMarked(id);
 
         setTodo(new_todo);
     }
