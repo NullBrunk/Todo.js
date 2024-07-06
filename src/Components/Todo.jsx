@@ -34,9 +34,10 @@ export function Todo() {
             new_task,
         ]
 
-        setTodo(new_todo);
-
+        // Store the task in the localstorage
         storage.set(new_task);
+        
+        setTodo(new_todo);
     }
     
     /**
@@ -51,6 +52,10 @@ export function Todo() {
             }
             return { ...todo, checked: !todo.checked }
         });
+
+        // Mark the task in the localstorage
+        storage.setMarked(id);
+
         setTodo(new_todo);
     }
 
@@ -62,6 +67,10 @@ export function Todo() {
      */
     function remove(id) {
         const new_todo = todo.filter(task => task.id !== id);
+
+        // Remove the task from the localStorage
+        storage.remove(id);
+
         setTodo(new_todo);
     }
     

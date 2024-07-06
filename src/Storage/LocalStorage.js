@@ -3,12 +3,12 @@ export class Storage {
     constructor() {}
 
     /**
-     * @param {Object} todo     The todo to store
+     * @param {Object} task     The todo to store
      */
-    set(todo) {
-        let serialized = JSON.stringify(todo);
+    set(task) {
+        let serialized = JSON.stringify(task);
 
-        localStorage.setItem(todo.id, serialized)
+        localStorage.setItem(task.id, serialized)
     }
 
     get(key) {
@@ -21,6 +21,13 @@ export class Storage {
         localStorage.removeItem(key);
     }
 
+    setMarked(key) {
+        let task = this.get(key);
+        task.checked = !task.checked;
+        
+        this.set(task);
+    }
+
     loadTodos() {
         let todo_keys = Object.keys(localStorage);
         let todos = [];
@@ -29,7 +36,6 @@ export class Storage {
             todos.push(this.get(key));
         }
 
-        console.log(todos);
         return todos;
     }
 }
