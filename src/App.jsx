@@ -6,10 +6,10 @@ import { Todo } from './Components/Todo.jsx'
 function App() {
 
     return (
-        <Fragment>
+        <div className="bg-gray-100 h-screen">
             <Header />    
             <Todo />
-        </Fragment>
+        </div>
     );
 }
 
