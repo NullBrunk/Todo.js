@@ -1,14 +1,16 @@
-import { Task } from "./Task.jsx";
+import { Fragment, useEffect, useState } from "react";
+
+import { Storage } from "../Storage/LocalStorage.js";
+
 import { AddTask } from "./AddTask.jsx"
 import { Search } from "./Search.jsx";
-import { Fragment, useEffect, useState } from "react";
+import { Task } from "./Task.jsx";
 
 export function Todo() {
     
-    const [todo, setTodo] = useState([
-        { id: 1, body: "Hello", checked: true, },
-        { id: 2, body: "Test", checked: false, },
-    ]);
+    let storage = new Storage();
+
+    const [todo, setTodo] = useState(storage.loadTodos());
     const [ todoClone, setTodoClone ] = useState(todo);
 
     // When todo change, change the todo clone variable
@@ -19,21 +21,22 @@ export function Todo() {
     /**
      * Ajoute une tâche
      * 
-     * @param {*} event     Un événement de type submit passé par le formulaire d'ajout
+     * @param {String} task_body     Le body de la tâche à ajouter
      */
-    function add(event) {
-        let task_body = event.target[0].value;
+    function add(task_body) {
         if(task_body.trim() === "") return;
         
         const last_id = todo.length === 0 ? 0 : todo[todo.length-1].id;
+        const new_task = { id: last_id + 1, body: task_body, checked: false };
 
         const new_todo = [
             ...todo,
-            { id: last_id + 1, body: task_body, checked: false },
+            new_task,
         ]
 
         setTodo(new_todo);
-        event.preventDefault();
+
+        storage.set(new_task);
     }
     
     /**

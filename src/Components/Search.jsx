@@ -37,7 +37,7 @@ export function Search({todos, setTodoClone}) {
 
 
     return (
-    <form onSubmit={(e) => add(e)} className="flex flex-col mt-6 mb-6">
+    <form onSubmit={(e) => add(e)} className="flex flex-col mt-12 mb-12">
         
         {/* Input to search for a task */}
         <div className="w-full flex m-auto rounded-md ring-1 ring-gray-300 text-xl focus:outline-none">

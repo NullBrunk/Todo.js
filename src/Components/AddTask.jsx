@@ -11,20 +11,24 @@ export function AddTask({add}) {
     
     return <div className="flex w-full bottom-right">
         <form  onSubmit={(e) => { 
-                console.log(add);
-                add(e);
-                setShowForm(!showForm);
+                // On recupère le contenu de l'input
+                let task_body = e.target[0].value;
+                e.target[0].value = "";
+
+                add(task_body);
+                e.preventDefault();
             }}
             className="flex m-auto ring-1 ring-gray-300 pl-4 rounded-md overflow-hidden" 
         >
-            <input type="text" className="w-5/6 bg-transparent py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none" placeholder="Add a new task ..." style={{"width": "80vw"}} />
+            <input type="text" className="w-5/6 bg-transparent py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none" placeholder="Add a new task ..." style={{"width": "80vw"}} autoFocus />
             <button onClick={
                     (e) => setShowForm(false)
                 } 
                 className="bg-gray-800 hover:bg-gray-600 duration-500 transition text-white font-bold px-6 border-r-2 border-gray-300  rounded-sm"
-            ><i class="bi bi-x-lg"></i></button>
+                type="button"
+            ><i className="bi bi-x-lg"></i></button>
             
-            <button className="bg-gray-800 hover:bg-gray-600 duration-500 transition text-white font-bold px-6 rounded-sm"><i class="bi bi-send"></i></button>
+            <button className="bg-gray-800 hover:bg-gray-600 duration-500 transition text-white font-bold px-6 rounded-sm" type="submit"><i className="bi bi-send"></i></button>
         </form>
     </div>
 
