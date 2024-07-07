@@ -2,7 +2,9 @@
    
 # Todo.js  
   
+You may test it directly in here: https://nullbrunktodo.netlify.app/
 <br/> 
+
 
 ![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/Todo.js?style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/Todo.js?style=for-the-badge)
@@ -12,8 +14,6 @@
 
 
 
-> [!NOTE]
-> You may test it directly in here: https://nullbrunktodo.netlify.app/
 
 
 # ⚒️ Installation
