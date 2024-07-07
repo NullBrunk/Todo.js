@@ -15,8 +15,6 @@ export function Todo() {
     const [ showMarked, setShowMarked ] = useState(false);
     const [ filter, setFilter ] = useState("");
 
-    console.log(showMarked);
-
     /**
      * Ajoute une tâche
      * 
