@@ -8,10 +8,10 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/Todo.js?style=for-the-badge)
 ![repo size](https://img.shields.io/github/repo-size/NullBrunk/Todo.js?style=for-the-badge)
 
-
-![phpchat](https://github.com/NullBrunk/Todo.js/assets/125673909/eabe391b-88f3-4b9c-9545-975cdaee98d1)
-
 </div>
+
+> [!INFORMATION]
+> You may test it directly in here: https://nullbrunktodo.netlify.app/
 
 
 # ⚒️ Installation
@@ -21,5 +21,6 @@
 
 ```bash
 git clone https://github.com/NullBrunk/Todo.js && cd Todo.js
-npm i && npm run dev
+npm i && npm run build
 ```
+
