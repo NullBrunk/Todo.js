@@ -12,7 +12,7 @@
 
 
 
-> [!INFORMATION]
+> [!NOTE]
 > You may test it directly in here: https://nullbrunktodo.netlify.app/
 
 
