@@ -10,13 +10,12 @@ export function Todo() {
     
     let storage = new Storage();
 
-    const [todo, setTodo] = useState(storage.loadTodos());
-    const [ todoClone, setTodoClone ] = useState(todo);
+    let [ todo, setTodo ] = useState(storage.loadTodos());
 
-    // When todo change, change the todo clone variable
-    useEffect(() => {
-        setTodoClone([...todo]);
-    }, [todo]);
+    const [ showMarked, setShowMarked ] = useState(false);
+    const [ filter, setFilter ] = useState("");
+
+    console.log(showMarked);
 
     /**
      * Ajoute une tâche
@@ -59,7 +58,6 @@ export function Todo() {
         setTodo(new_todo);
     }
 
-
     /**
      * Supprimer une tâche
      * 
@@ -79,8 +77,8 @@ export function Todo() {
             <section className="w-4/5" style={{"marginLeft": "10%"}}>
 
                 {/* Search through tasks */}
-                <Search todos={todo} setTodoClone={setTodoClone} />
-                
+                <Search setShowMarked={setShowMarked} setFilter={setFilter}/>
+
                 {/* Todos table */}
                 <div className="bg-gray-800 rounded-xl">
                     <div className="relative rounded-xl overflow-auto">
@@ -93,9 +91,25 @@ export function Todo() {
                             </div>
 
                             {/* Table body */}
-                            {todoClone.map((task) => { return (
-                                <Task task={task} check={check} remove={remove} key={task.id}/>
-                            ) }) }
+                            {
+                                // Go through all the tasks
+                                todo.map((task) => { 
+                                    // If there is a filter, ensure that we match it
+                                    if(!task.body.toLowerCase().includes(filter.toLowerCase())) {
+                                        return undefined;
+                                    }
+
+                                    // If the hide marked tasks is enabled, ensure to hide the marked tasks
+                                    if(showMarked && task.checked) {
+                                        return undefined;
+                                    }
+
+                                    // Return the task
+                                    return (
+                                        <Task task={task} check={check} remove={remove} key={task.id}/>
+                                    ) 
+                                })
+                            }
                         </div>
                     </div>
                 </div>
