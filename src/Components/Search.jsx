@@ -7,7 +7,7 @@ export function Search({setShowMarked, setFilter}) {
     const [isMarked, setIsMarked ] = useState("Hide");
 
     return (
-        <form className="flex flex-col mt-12 mb-12">
+        <form className="flex flex-col mt-24 mb-12">
             {/* Input to search for a task */}
             <div className="w-full flex m-auto rounded-md ring-1 ring-gray-300 text-xl focus:outline-none">
                 <span className="flex items-center select-none px-4 text-gray-500 ">
