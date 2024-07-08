@@ -20,7 +20,6 @@ https://github.com/NullBrunk/Todo.js/assets/125673909/f31d6643-542c-49a4-aaed-ed
 
 To gain more experience with React and the localStorage API, I developed a dynamic to-do app with various features such as a search bar, a checkbox to hide completed tasks, and more. Tasks are stored in localStorage, ensuring that all modifications are persisted. Finally, the frontend is built using Tailwind.
 
-
 # ⚒️ Installation
 
 > [!TIP]
