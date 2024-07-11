@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export function Task({task, check, remove}) {
+    
     return ( 
     <div className="flex bg-gray-800">
         
@@ -12,7 +15,10 @@ export function Task({task, check, remove}) {
         </div>
         
         {/* Body content */}
-        <div className="todo-card w-10/12"> {task.body}</div>
+        <div className={
+            "todo-card w-10/12 " + 
+            (task.checked ? "line-through text-grey" : "")
+        }> {task.body}</div>
         
         {/* Delete task button */}
         <div className="todo-card justify-center w-1/12"> 

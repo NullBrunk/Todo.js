@@ -24,6 +24,15 @@
     width: 48px !important;
 }
 
+.scroll-into {
+    max-height: 49vh;
+    overflow: scroll;
+}
+
+.text-grey {
+    @apply text-slate-500 !important;
+}
+
 /* Checkbox custom style */
 .checkbox {
     border: 1px solid rgba(255,255,255,.25);
@@ -45,11 +54,11 @@
 
 /* ## Navbar ## */
 .navbar-links {
-    @apply text-xl rounded-md px-3 py-2 text-sm font-medium text-lg
+    @apply text-xl rounded-md px-3 py-2 text-sm font-semibold text-lg 
 }
 
 .navbar-links-mobile {
-    @apply block rounded-md px-3 py-2 text-base font-medium
+    @apply block rounded-md px-3 py-2 text-base font-semibold
 }
 
 .navbar-links-hover {

@@ -579,24 +579,12 @@ video {
   margin-left: 1.5rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-24 {
-  margin-top: 6rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mt-14 {
-  margin-top: 3.5rem;
-}
-
 .mt-16 {
   margin-top: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .flex {
@@ -611,8 +599,8 @@ video {
   display: none;
 }
 
-.h-16 {
-  height: 4rem;
+.h-20 {
+  height: 5rem;
 }
 
 .h-8 {
@@ -629,10 +617,6 @@ video {
 
 .w-10\/12 {
   width: 83.333333%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .w-5\/6 {
@@ -810,6 +794,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.line-through {
+  text-decoration-line: line-through;
+}
+
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -866,6 +854,16 @@ video {
   width: 48px !important;
 }
 
+.scroll-into {
+  max-height: 49vh;
+  overflow: scroll;
+}
+
+.text-grey {
+  --tw-text-opacity: 1 !important;
+  color: rgb(100 116 139 / var(--tw-text-opacity)) !important;
+}
+
 /* Checkbox custom style */
 
 .checkbox {
@@ -897,7 +895,7 @@ video {
   padding-bottom: 0.5rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .navbar-links-mobile {
@@ -909,7 +907,7 @@ video {
   padding-bottom: 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .navbar-links-hover {

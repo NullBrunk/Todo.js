@@ -1,7 +1,7 @@
 export function Header() {
     return ( 
         <nav className="bg-gray-800 py-2">
-            <div className="flex h-16">
+            <div className="flex h-20">
                 <div className="flex flex-1 items-center justify-center">
                     <img className="h-8 w-auto" src="/favicon.png" alt="Todo react logo" />
                     <div className="hidden ml-6 sm:block flex space-x-4">

@@ -72,7 +72,7 @@ export function Todo() {
     
     return (
         <Fragment>
-            <section className="w-4/5" style={{"marginLeft": "10%"}}>
+            <section style={{"width": "90%", "marginLeft": "5%"}}>
 
                 {/* Search through tasks */}
                 <Search setShowMarked={setShowMarked} setFilter={setFilter}/>
@@ -80,7 +80,7 @@ export function Todo() {
                 {/* Todos table */}
                 <div className="bg-gray-800 rounded-xl">
                     <div className="relative rounded-xl overflow-auto">
-                        <div className="shadow-sm overflow-hidden my-8">
+                        <div className="shadow-sm scroll-into my-8">
                             {/* Header */}
                             <div className="flex">
                                 <div className="todo-header w-1/12">Mark</div>
