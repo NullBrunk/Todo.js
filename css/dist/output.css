@@ -864,6 +864,18 @@ video {
   color: rgb(100 116 139 / var(--tw-text-opacity)) !important;
 }
 
+@media(max-width: 1000px) {
+  .responsive-delete {
+    margin-right: 30px !important;
+  }
+}
+
+@media(max-width: 640px) {
+  .responsive-container {
+    display: none !important;
+  }
+}
+
 /* Checkbox custom style */
 
 .checkbox {
@@ -950,11 +962,16 @@ video {
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(51 65 85 / var(--tw-border-opacity));
-  padding: 1rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 1024px) {
+  .todo-card {
+    padding: 1rem;
+  }
 }
 
 .placeholder\:text-gray-400::-moz-placeholder {

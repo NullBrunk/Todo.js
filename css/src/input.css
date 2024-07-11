@@ -33,6 +33,18 @@
     @apply text-slate-500 !important;
 }
 
+@media(max-width: 1000px) {
+    .responsive-delete {
+        margin-right: 30px !important;
+    }
+}
+
+@media(max-width: 640px) {
+    .responsive-container {
+        display: none !important;
+    }
+}
+
 /* Checkbox custom style */
 .checkbox {
     border: 1px solid rgba(255,255,255,.25);
@@ -71,6 +83,6 @@
 }
 
 .todo-card {
-    @apply flex border-b border-slate-700 text-white p-4 text-xl
+    @apply flex border-b border-slate-700 text-white lg:p-4 text-xl
 }
 

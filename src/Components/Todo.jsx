@@ -82,10 +82,10 @@ export function Todo() {
                     <div className="relative rounded-xl overflow-auto">
                         <div className="shadow-sm scroll-into my-8">
                             {/* Header */}
-                            <div className="flex">
+                            <div className="flex responsive-container">
                                 <div className="todo-header w-1/12">Mark</div>
                                 <div className="todo-header w-10/12 text-left-important">Body</div>
-                                <div className="todo-header w-1/12">Delete</div>
+                                <div className="todo-header w-1/12 responsive-delete">Delete</div>
                             </div>
 
                             {/* Table body */}
