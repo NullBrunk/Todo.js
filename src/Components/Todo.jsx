@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 
 import { Storage } from "../Storage/LocalStorage.js";
 
@@ -6,19 +6,24 @@ import { AddTask } from "./AddTask.jsx"
 import { Search } from "./Search.jsx";
 import { Task } from "./Task.jsx";
 
+
 export function Todo() {
     
-    let storage = new Storage();
-
-    let [ todo, setTodo ] = useState(storage.loadTodos());
-
+    // custom class to interact with localStorage
+    const storage = new Storage();
+    
+    // The todolist
+    const [ todo, setTodo ] = useState(storage.loadTodos());
+    // Checkbox "Hide marked tasks"
     const [ showMarked, setShowMarked ] = useState(false);
+    // Input Searchbar
     const [ filter, setFilter ] = useState("");
+
 
     /**
      * Ajoute une tâche
      * 
-     * @param {String} task_body     Le body de la tâche à ajouter
+     * @param {string} task_body     Le body de la tâche à ajouter
      */
     function add(task_body) {
         if(task_body.trim() === "") return;
@@ -26,15 +31,11 @@ export function Todo() {
         const last_id = todo.length === 0 ? 0 : todo[todo.length-1].id;
         const new_task = { id: last_id + 1, body: task_body, checked: false };
 
-        const new_todo = [
-            ...todo,
-            new_task,
-        ]
-
         // Store the task in the localstorage
         storage.set(new_task);
-        
-        setTodo(new_todo);
+
+        // Update the todolist
+        setTodo([...todo, new_task ]);
     }
     
     /**
@@ -53,6 +54,7 @@ export function Todo() {
         // Toggle Mark attribute in the localstorage
         storage.toggleMarked(id);
 
+        // Update the todolist
         setTodo(new_todo);
     }
 
@@ -67,9 +69,11 @@ export function Todo() {
         // Remove the task from the localStorage
         storage.remove(id);
 
+        // Update the todolist
         setTodo(new_todo);
     }
     
+
     return (
         <Fragment>
             <section style={{"width": "90%", "marginLeft": "5%"}}>
@@ -90,19 +94,14 @@ export function Todo() {
 
                             {/* Table body */}
                             {
-                                // Go through all the tasks
+                                // Loop through tasks
                                 todo.map((task) => { 
-                                    // If there is a filter, ensure that we match it
-                                    if(!task.body.toLowerCase().includes(filter.toLowerCase())) {
-                                        return undefined;
-                                    }
+                                    // If there is a text in the searchbar, ensure that we match it
+                                    if(!task.body.toLowerCase().includes(filter.toLowerCase())) return;
 
-                                    // If the hide marked tasks is enabled, ensure to hide the marked tasks
-                                    if(showMarked && task.checked) {
-                                        return undefined;
-                                    }
+                                    // If the "hide marked tasks" checkbox is checked, ensure to hide the marked tasks
+                                    if(showMarked && task.checked) return;
 
-                                    // Return the task
                                     return (
                                         <Task task={task} check={check} remove={remove} key={task.id}/>
                                     ) 
@@ -117,5 +116,5 @@ export function Todo() {
             {/* Form to add a new task */}
             <AddTask add={add} />
         </Fragment>
-    )
+    );
 }

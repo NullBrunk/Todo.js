@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function Search({setShowMarked, setFilter}) {
     
@@ -14,9 +14,10 @@ export function Search({setShowMarked, setFilter}) {
                     <i className="bi bi-search m-auto"></i>
                 </span>
                 
-                <input type="text" onChange={
+                <input onChange={
                         (e) => setFilter(e.target.value)
                     } 
+                    type="text"
                     className="bg-transparent py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none w-full" id="search" placeholder="Search for a task" 
                 />
             </div>

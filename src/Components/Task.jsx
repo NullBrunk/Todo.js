@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export function Task({task, check, remove}) {
     
     return ( 
@@ -7,10 +5,12 @@ export function Task({task, check, remove}) {
         
         {/* Mark task button */}
         <div className="todo-card justify-center w-1/12">
-            <input type="checkbox" onChange={
+            <input onChange={
                     () => check(task.id)
                 } 
-                className="checkbox" checked={task.checked}  
+                checked={task.checked}  
+                className="checkbox" 
+                type="checkbox"
             />
         </div>
         
@@ -22,12 +22,12 @@ export function Task({task, check, remove}) {
         
         {/* Delete task button */}
         <div className="todo-card justify-center w-1/12"> 
-            <button type="submit" onClick={(e) => { 
-                    e.preventDefault(); 
-                    remove(task.id)}
-                }
-                className="bg-rose-500 hover:bg-rose-300 duration-500 transition text-white font-bold py-1 px-2 rounded-md" 
-            ><i className="bi bi-trash2-fill"></i></button>
+            <button onClick={(e) => { 
+                e.preventDefault(); 
+                remove(task.id)
+            }}>
+                <i className="bi bi-trash2-fill"></i>
+            </button>
         </div>
 
     </div>

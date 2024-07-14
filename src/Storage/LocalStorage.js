@@ -64,7 +64,7 @@ export class Storage {
      * @returns {Array}     An array of tasks
      */
     loadTodos() {
-        let todo_keys = Object.keys(localStorage);
+        let todo_keys = Object.keys(localStorage).reverse();
         let todos = [];
 
         for(let key of todo_keys) {

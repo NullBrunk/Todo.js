@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 /* Utility classes */
-.text-left-important {
-    text-align: left !important;
-}
-
 .border-black {
     border: 1px solid rgba(0, 0, 0,.25) !important;
 }
@@ -33,6 +29,12 @@
     @apply text-slate-500 !important;
 }
 
+.text-left-important {
+    @apply text-left !important;
+}
+
+
+/* Responsivity */
 @media(max-width: 1000px) {
     .responsive-delete {
         margin-right: 30px !important;
@@ -62,6 +64,7 @@
     border-color: #4f46e5;
 }
 
+
 /* Reusable components */
 
 /* ## Navbar ## */
@@ -86,3 +89,24 @@
     @apply flex border-b border-slate-700 text-white lg:p-4 text-xl
 }
 
+.todo-card button {
+    @apply bg-rose-500 hover:bg-rose-300 duration-500 transition text-white font-bold py-1 px-2 rounded-md
+}
+
+/* ## Add task form ## */
+.show-add-task {
+    @apply bottom-right wh-48 bg-gray-800 rounded-md select-none 
+}
+
+form#add-task {
+    @apply flex m-auto ring-1 ring-gray-300 pl-4 rounded-md overflow-hidden
+}
+
+form#add-task input {
+    width: 80vw !important;
+    @apply bg-transparent py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none
+}
+
+form#add-task button {
+    @apply bg-gray-800 hover:bg-gray-600 duration-500 transition text-white font-bold px-6 rounded-sm border-gray-300 border-l-2
+} 
