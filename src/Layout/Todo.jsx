@@ -1,6 +1,6 @@
-import Task from "./Task.jsx";
+import Task from "../Components/Task.jsx";
 
-const Todo = ({todos, showMarked, filter}) => {
+function Todo ({todos, showMarked, filter}) {
     return (
         <div className="bg-gray-800 rounded-xl">
             <div className="relative rounded-xl overflow-auto">
@@ -29,6 +29,6 @@ const Todo = ({todos, showMarked, filter}) => {
             </div>
         </div>
     );
-};
+}
 
 export default Todo;

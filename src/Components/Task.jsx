@@ -1,7 +1,9 @@
 import { TodoContext } from "../Context/TodoContext.jsx";
-import { useContext, memo } from "react";
+import { useContext } from "react";
 
-const Task = memo(({task}) => {
+import Checkbox from "./Forms/Checkbox.jsx"
+
+function Task ({task}) {
     
     const {
         check: check,
@@ -13,13 +15,7 @@ const Task = memo(({task}) => {
             
             {/* Mark task button */}
             <div className="todo-card justify-center w-1/12">
-                <input onChange={
-                        () => check(task.id)
-                    } 
-                    checked={task.checked}  
-                    className="checkbox" 
-                    type="checkbox"
-                />
+                <Checkbox onChange={() => check(task.id)} value={task.checked} />
             </div>
             
             {/* Body content */}
@@ -39,6 +35,6 @@ const Task = memo(({task}) => {
             </div>
         </div>
     );
-});
+};
 
 export default Task;

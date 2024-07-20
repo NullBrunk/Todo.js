@@ -1,7 +1,7 @@
 import { TodoContext } from "../Context/TodoContext.jsx";
-import { memo, useContext, useState } from "react";
+import { useContext, useState } from "react";
 
-const AddTask = memo(() => {
+function AddTask () {
     
     const { add: add } = useContext(TodoContext);
     const [opened, setOpened] = useState(false);
@@ -41,6 +41,6 @@ const AddTask = memo(() => {
             </form>
         </div>
     );
-});
+};
 
 export default AddTask;

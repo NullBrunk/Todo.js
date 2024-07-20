@@ -1,6 +1,8 @@
-import { memo, useState } from "react";
+import { useState } from "react";
 
-const Search = memo(({setShowMarked, setFilter}) => {
+import Checkbox from "./Forms/Checkbox.jsx";
+
+function Search ({setShowMarked, setFilter}) {
     
     // Affiche "show" ou "hide" marked tasks au niveau de la checkbox
     // en fonction de si elle est checkée ou pas 
@@ -24,18 +26,18 @@ const Search = memo(({setShowMarked, setFilter}) => {
 
             {/* Toggle to show/hide marked tasks */}
             <div className="flex mt-2 items-center">
-                <input type="checkbox" onChange={
-                        (e) => {
-                            setShowMarked(e.target.checked)
-                            setIsMarked(isMarked === "Hide" ? "Show" : "Hide");
-                        }
-                    } 
-                    className="checkbox border-black" id="mark"
+                <Checkbox onChange={(e) => {
+                        setShowMarked(e.target.checked)
+                        setIsMarked(isMarked === "Hide" ? "Show" : "Hide");
+                    }} 
+                    value={isMarked === "Hide"} 
+                    label={isMarked + " marked tasks"}
+                    htmlclass="border-black" 
+                    id="mark" 
                 />
-                <label htmlFor="mark" className="text-base text-gray-900 ml-3 select-none">{isMarked} marked tasks</label>
             </div>
         </form>
     );
-});
+};
 
 export default Search;
