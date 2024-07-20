@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { useCallback, useEffect, useState} from "react";
 
-import { Storage } from "../Storage/LocalStorage.js";
+import Storage from "../Storage/LocalStorage.js";
 
-import { AddTask } from "./AddTask.jsx"
-import { Search } from "./Search.jsx";
-import { Task } from "./Task.jsx";
+import AddTask from "./AddTask.jsx"
+import Search from "./Search.jsx";
+import Task from "./Task.jsx";
 
 
 export function Todo() {
@@ -13,19 +13,23 @@ export function Todo() {
     const storage = new Storage();
     
     // The todolist
-    const [ todo, setTodo ] = useState(storage.loadTodos());
+    const [ todo, setTodo ] = useState([]);
     // Checkbox "Hide marked tasks"
     const [ showMarked, setShowMarked ] = useState(false);
     // Input Searchbar
     const [ filter, setFilter ] = useState("");
 
+    useEffect(() => {
+        setTodo(storage.loadTodos());
+    }, [])
+    
 
     /**
      * Ajoute une tâche
      * 
      * @param {string} task_body     Le body de la tâche à ajouter
      */
-    function add(task_body) {
+    const add = useCallback((task_body) => {
         if(task_body.trim() === "") return;
         
         const last_id = todo.length === 0 ? 0 : todo[todo.length-1].id;
@@ -35,15 +39,16 @@ export function Todo() {
         storage.set(new_task);
 
         // Update the todolist
-        setTodo([...todo, new_task ]);
-    }
+        setTodo([ ...todo, new_task ]);
+    }, [todo, showMarked]);
     
+
     /**
      * Marquer une tache
      * 
      * @param {int} id      L'id de la tâche à marquer
      */
-    function check(id) {
+    const check = useCallback((id) => {
         const new_todo = todo.map((todo) => {
             if(todo.id !== id) {
                 return todo;
@@ -56,14 +61,15 @@ export function Todo() {
 
         // Update the todolist
         setTodo(new_todo);
-    }
+    }, [todo, showMarked]);
+
 
     /**
      * Supprimer une tâche
      * 
      * @param {int} id      L'id de la tâche à supprimer 
      */
-    function remove(id) {
+    const remove = useCallback((id) => {
         const new_todo = todo.filter(task => task.id !== id);
 
         // Remove the task from the localStorage
@@ -71,11 +77,11 @@ export function Todo() {
 
         // Update the todolist
         setTodo(new_todo);
-    }
+    }, [todo, showMarked]);
     
 
     return (
-        <Fragment>
+        <>
             <section style={{"width": "90%", "marginLeft": "5%"}}>
 
                 {/* Search through tasks */}
@@ -115,6 +121,6 @@ export function Todo() {
             
             {/* Form to add a new task */}
             <AddTask add={add} />
-        </Fragment>
+        </>
     );
 }

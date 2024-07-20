@@ -1,4 +1,4 @@
-export function Task({task, check, remove}) {
+function Task({task, check, remove}) {
     
     return ( 
     <div className="flex bg-gray-800">
@@ -33,3 +33,5 @@ export function Task({task, check, remove}) {
     </div>
     );
 }
+
+export default Task;

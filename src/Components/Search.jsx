@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
-export function Search({setShowMarked, setFilter}) {
+const Search = memo(({setShowMarked, setFilter}) => {
     
     // Affiche "show" ou "hide" marked tasks au niveau de la checkbox
     // en fonction de si elle est checkée ou pas 
@@ -36,4 +36,6 @@ export function Search({setShowMarked, setFilter}) {
             </div>
         </form>
     );
-}
+});
+
+export default Search;

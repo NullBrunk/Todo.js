@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
-export function AddTask({add}) {
+const AddTask = memo(({add}) => {
 
-    const [showAddTask, setShowAddTask] = useState(false);
-
+    const [opened, setOpened] = useState(false);
+    console.log("rendered");
     // Display a button with a "+" icon
-    if(!showAddTask) {
+    if(!opened) {
         return (
-            <div onClick={(e) => setShowAddTask(!showAddTask)} className="show-add-task">
+            <div onClick={(e) => setOpened(!opened)} className="show-add-task">
                 <i className="bi bi-plus-lg m-auto text-white "></i> 
             </div>
         );
@@ -28,7 +28,7 @@ export function AddTask({add}) {
                 <input type="text" placeholder="Add a new task ..." autoFocus />
                 
                 <button onClick={
-                        (e) => setShowAddTask(false)
+                        (e) => setOpened(false)
                     } 
                 type="button">
                     <i className="bi bi-x-lg"></i>
@@ -39,4 +39,6 @@ export function AddTask({add}) {
             </form>
         </div>
     );
-}
+});
+
+export default AddTask;

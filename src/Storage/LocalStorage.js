@@ -1,4 +1,4 @@
-export class Storage {
+class Storage {
     
     constructor() {}
 
@@ -74,3 +74,5 @@ export class Storage {
         return todos;
     }
 }
+
+export default Storage;
