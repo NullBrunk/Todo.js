@@ -3,7 +3,6 @@ import { memo, useState } from "react";
 const AddTask = memo(({add}) => {
 
     const [opened, setOpened] = useState(false);
-    console.log("rendered");
     // Display a button with a "+" icon
     if(!opened) {
         return (
