@@ -591,10 +591,6 @@ video {
   display: flex;
 }
 
-.table {
-  display: table;
-}
-
 .hidden {
   display: none;
 }
@@ -797,6 +793,11 @@ video {
 
 .text-left-important {
   text-align: left !important;
+}
+
+.main {
+  width: 90% !important;
+  margin-left: 5% !important;
 }
 
 /* Responsivity */

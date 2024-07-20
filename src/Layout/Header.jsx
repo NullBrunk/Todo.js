@@ -1,4 +1,6 @@
-export function Header() {
+import { memo } from "react";
+
+const Header = memo(() => {
     return ( 
         <nav className="bg-gray-800 py-2">
             <div className="flex h-20">
@@ -21,4 +23,6 @@ export function Header() {
             </div>
         </nav>
     );
-}
+});
+
+export default Header;

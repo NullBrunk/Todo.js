@@ -8,11 +8,12 @@
     "build": "vite build && cp -rf ./favicon.png dist/favicon.png",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-	"css": "npx tailwindcss -i ./css/src/input.css -o ./css/dist/output.css --watch"
+    "css": "npx tailwindcss -i ./css/src/input.css -o ./css/dist/output.css --watch"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

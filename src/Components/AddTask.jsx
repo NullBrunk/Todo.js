@@ -1,8 +1,11 @@
-import { memo, useState } from "react";
+import { TodoContext } from "../Context/TodoContext.jsx";
+import { memo, useContext, useState } from "react";
 
-const AddTask = memo(({add}) => {
-
+const AddTask = memo(() => {
+    
+    const { add: add } = useContext(TodoContext);
     const [opened, setOpened] = useState(false);
+
     // Display a button with a "+" icon
     if(!opened) {
         return (
@@ -11,7 +14,7 @@ const AddTask = memo(({add}) => {
             </div>
         );
     }
-    
+
     // Dislay the form to add a task
     return (
         <div className="flex w-full bottom-right">
